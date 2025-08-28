@@ -284,8 +284,8 @@ const PhotoBooth: FC = () => {
             </div>
           )}
         </div>
-        <DialogFooter>
-          <Button type="submit" size="lg" className="rounded-full" onClick={handleSelectionSubmit}>
+        <DialogFooter className="justify-center mt-4">
+          <Button type="submit" size="lg" className="rounded-full hover:shadow-lg hover:shadow-primary/40 transition-shadow" onClick={handleSelectionSubmit}>
             Start Camera <Camera className="ml-2" />
           </Button>
         </DialogFooter>
