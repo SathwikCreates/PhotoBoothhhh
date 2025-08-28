@@ -243,29 +243,41 @@ const PhotoBooth: FC = () => {
         </DialogHeader>
         <div className="grid gap-6 py-4">
           <div className="space-y-3">
-            <RadioGroup value={numPhotos} onValueChange={setNumPhotos} className="flex gap-4">
+            <RadioGroup value={numPhotos} onValueChange={setNumPhotos} className="flex justify-around gap-4">
               {['2', '3', '4'].map(val => (
                 <div key={val} className="flex items-center space-x-2">
                   <RadioGroupItem value={val} id={`r-${val}`} />
-                  <Label htmlFor={`r-${val}`} className="text-base">{val}</Label>
+                  <Label htmlFor={`r-${val}`} className="text-lg cursor-pointer">{val}</Label>
                 </div>
               ))}
             </RadioGroup>
           </div>
           {numPhotos !== '3' && (
-            <div className="space-y-3 animate-in fade-in">
-              <Label className="font-semibold text-base">Choose a layout</Label>
-              <RadioGroup value={layout} onValueChange={(v) => setLayout(v as Layout)} className="flex gap-4">
+            <div className="space-y-4 animate-in fade-in">
+              <Label className="font-semibold text-base text-center block">Choose a layout</Label>
+              <RadioGroup value={layout} onValueChange={(v) => setLayout(v as Layout)} className="grid grid-cols-2 gap-4">
                 {numPhotos === '2' && (
                   <>
-                    <div className="flex items-center space-x-2"><RadioGroupItem value="side-by-side" id="l-sbs" /><Label htmlFor="l-sbs">Side-by-side</Label></div>
-                    <div className="flex items-center space-x-2"><RadioGroupItem value="up-and-down" id="l-uad" /><Label htmlFor="l-uad">Up-and-down</Label></div>
+                    <Label htmlFor="l-sbs" className="flex flex-col items-center gap-2 p-4 rounded-lg border border-transparent cursor-pointer transition-all has-[input:checked]:border-primary has-[input:checked]:shadow-[0_0_10px_2px_hsl(var(--primary))] has-[input:checked]:bg-primary/10">
+                      <RadioGroupItem value="side-by-side" id="l-sbs" />
+                       Side-by-side
+                    </Label>
+                    <Label htmlFor="l-uad" className="flex flex-col items-center gap-2 p-4 rounded-lg border border-transparent cursor-pointer transition-all has-[input:checked]:border-primary has-[input:checked]:shadow-[0_0_10px_2px_hsl(var(--primary))] has-[input:checked]:bg-primary/10">
+                       <RadioGroupItem value="up-and-down" id="l-uad" />
+                       Up-and-down
+                    </Label>
                   </>
                 )}
                 {numPhotos === '4' && (
                   <>
-                    <div className="flex items-center space-x-2"><RadioGroupItem value="side-by-side" id="l-sbs4" /><Label htmlFor="l-sbs4">Side-by-side</Label></div>
-                    <div className="flex items-center space-x-2"><RadioGroupItem value="2x2-grid" id="l-2x2" /><Label htmlFor="l-2x2">2x2 Grid</Label></div>
+                     <Label htmlFor="l-sbs4" className="flex flex-col items-center gap-2 p-4 rounded-lg border border-transparent cursor-pointer transition-all has-[input:checked]:border-primary has-[input:checked]:shadow-[0_0_10px_2px_hsl(var(--primary))] has-[input:checked]:bg-primary/10">
+                      <RadioGroupItem value="side-by-side" id="l-sbs4" />
+                       Side-by-side
+                    </Label>
+                    <Label htmlFor="l-2x2" className="flex flex-col items-center gap-2 p-4 rounded-lg border border-transparent cursor-pointer transition-all has-[input:checked]:border-primary has-[input:checked]:shadow-[0_0_10px_2px_hsl(var(--primary))] has-[input:checked]:bg-primary/10">
+                       <RadioGroupItem value="2x2-grid" id="l-2x2" />
+                       2x2 Grid
+                    </Label>
                   </>
                 )}
               </RadioGroup>
